@@ -1,0 +1,101 @@
+.dashboard-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+}
+
+h1 {
+  font-size: 2.4rem;
+  margin-bottom: 3.2rem;
+}
+
+.sub-text {
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+.card-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  background: #fff;
+
+  h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    margin: 0.4rem 0;
+    font-size: 1.4rem;
+  }
+}
+
+.current-election-and-info {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  margin-bottom: 3rem;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  .sub-text {
+    width: calc(100% - 234px);
+    margin: 0;
+  }
+}
+
+.current-election-card {
+  margin-bottom: 3rem;
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .card {
+    padding: 2rem;
+    border: 1px solid #007bff;
+    border-radius: 8px;
+    background-color: #e7f1ff;
+    box-shadow: 0 3px 8px rgba(0, 123, 255, 0.2);
+
+    h3 {
+      font-size: 1.8rem;
+      margin-bottom: 0.8rem;
+    }
+
+    p {
+      font-size: 1.4rem;
+      margin-bottom: 1.2rem;
+    }
+
+    button {
+      padding: 0.8rem 1.6rem;
+      font-size: 1.2rem;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:disabled {
+        background-color: #999;
+        cursor: not-allowed;
+      }
+
+      &:not(:disabled):hover {
+        background-color: #0056b3;
+      }
+    }
+  }
+}

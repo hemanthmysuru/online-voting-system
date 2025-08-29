@@ -1,0 +1,50 @@
+.app-header {
+  display: flex;
+  background: #333;
+  color: white;
+  height: 56px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 16px;
+
+  h3 {
+    color: white;
+    margin: 0;
+  }
+
+  nav {
+    .nav-links {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      display: flex;
+      gap: 24px;
+      transform: all 0.3s ease-in-out;
+
+      li {
+        a {
+          color: #888;
+          text-decoration: none;
+          transform: all 0.3s ease-in-out;
+
+          &:hover,
+          &.active {
+            color: white;
+          }
+        }
+      }
+    }
+  }
+
+  .user-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+
+    button {
+      cursor: pointer;
+    }
+  }
+}

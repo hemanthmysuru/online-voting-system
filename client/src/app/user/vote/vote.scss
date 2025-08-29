@@ -1,0 +1,64 @@
+.vote-container {
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 2rem;
+
+  h2 {
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
+  }
+
+  .info-message {
+    color: green;
+    font-weight: 600;
+    margin-bottom: 2rem;
+  }
+}
+
+.candidate-list {
+  display: grid;
+  gap: 2rem;
+}
+
+.candidate-card {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 1.5rem;
+  border-radius: 6px;
+  background: #f9f9f9;
+
+  .symbol {
+    font-size: 3rem;
+    margin-right: 1.5rem;
+  }
+
+  .details {
+    flex-grow: 1;
+
+    h4 {
+      font-size: 1.6rem;
+      margin: 0 0 0.5rem 0;
+    }
+
+    p {
+      margin: 0;
+      font-size: 1.4rem;
+    }
+  }
+
+  button {
+    padding: 0.6rem 1.2rem;
+    font-size: 1.2rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:disabled {
+      background-color: #999;
+      cursor: not-allowed;
+    }
+  }
+}

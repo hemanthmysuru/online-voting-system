@@ -1,0 +1,32 @@
+<header class="app-header">
+  <h3>Online voting system</h3>
+
+  <nav>
+    <ul class="nav-links">
+      @if (!authService.isLoggedIn()) {
+        <li><a routerLink="/public/home" routerLinkActive="active">Home</a></li>
+        <li><a routerLink="/public/register" routerLinkActive="active">Register</a></li>
+        <li><a routerLink="/public/login" routerLinkActive="active">Login</a></li>
+        <li><a routerLink="/public/about" routerLinkActive="active">About</a></li>
+        <li><a routerLink="/public/contact" routerLinkActive="active">Contact</a></li>
+      } @else {
+        <li><a routerLink="/user" routerLinkActive="active">Dashboard</a></li>
+        <li><a routerLink="/profile" routerLinkActive="active">Profile</a></li>
+        <li><a routerLink="/elections" routerLinkActive="active">Elections</a></li>
+        <!-- <li><a routerLink="/history">Voting History</a></li> -->
+      }
+    </ul>
+  </nav>
+
+  <div class="user-info">
+    @if (authService.isLoggedIn()) {
+      <!-- <span>Welcome, {{ authService.getUserName() }}</span> -->
+      <span>Welcome, {{ 'Hemanth' }}</span>
+      <button (click)="authService.logout()">Logout</button>
+    }
+    <!-- @else {
+            <span>Please log in</span>
+            <button (click)="login()">Login</button>
+        } -->
+  </div>
+</header>

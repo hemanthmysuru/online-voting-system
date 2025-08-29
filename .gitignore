@@ -1,0 +1,56 @@
+# ========= COMMON FILES =========
+.env
+.env.*    # environment variants like .env.development, .env.production
+*.log
+*.tsbuildinfo
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# ========== NODE / SERVER ==========
+server/node_modules/
+server/dist/
+server/build/
+server/.env
+server/*.log
+
+# ========== ANGULAR / CLIENT ==========
+client/node_modules/
+client/dist/
+client/.angular/
+client/.angular/cache/
+client/.env
+client/*.log
+
+# Angular output folders
+dist/
+out-tsc/
+bazel-out/
+tmp/
+
+# ========== IDEs / EDITORS ==========
+.vscode/
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+.history/
+
+# ========== TEST COVERAGE ==========
+coverage/
+testem.log
+libpeerconnection.log
+connect.lock
+
+# ========== CSS / SASS ==========
+.sass-cache/
+
+# ========== PACKAGE MANAGERS ==========
+package-lock.json
+yarn-error.log
+npm-debug.log
+pnpm-lock.yaml
