@@ -1,22 +1,28 @@
+
 <section class="vote-container">
-  <h2>{{ election.title }}</h2>
+  <button (click)="goBack()">Go back</button>
+  @if (election) {
+  <h2>{{ election.name }}</h2>
 
   @if (hasVoted) {
-    <p class="info-message">✅ You have already voted in this election.</p>
+  <p class="info-message">✅ You have already voted in this election.</p>
   }
 
   <div class="candidate-list">
     @for (candidate of election.candidates; track candidate.id) {
-      <div class="candidate-card">
-        <div class="symbol">{{ candidate.symbol }}</div>
-        <div class="details">
-          <h4>{{ candidate.name }}</h4>
-          <p>Party: {{ candidate.party }}</p>
-        </div>
-        <button [disabled]="hasVoted" (click)="vote(candidate.id)">
-          {{ hasVoted ? 'Voted' : 'Vote' }}
-        </button>
+    <div class="candidate-card">
+      <figure class="symbol">{{ candidate.sign }}</figure>
+      <div class="details">
+        <h4>{{ candidate.name }}</h4>
+        <p>Party: {{ candidate.party }}</p>
       </div>
+      <button [disabled]="hasVoted || !election.votingOpen" (click)="vote(candidate.id)">
+        {{ hasVoted ? 'Voted' : 'Vote' }}
+      </button>
+    </div>
     }
   </div>
+  } @else {
+  <p>Loading election data...</p>
+  }
 </section>

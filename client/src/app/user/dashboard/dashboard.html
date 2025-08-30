@@ -4,28 +4,19 @@
 
     <aside class="current-election-and-info">
       <section class="current-election-card">
-        <!-- <h2>Current Election</h2> -->
-        <div class="card">
-          <h3>{{ currentElection.title }}</h3>
-          <p><strong>Date:</strong> {{ currentElection.date }}</p>
-          <p>{{ currentElection.description }}</p>
-          <button [disabled]="hasVoted || !currentElection.votingOpen" (click)="voteNow()">
-            {{
-              hasVoted ? 'Already Voted' : currentElection.votingOpen ? 'Vote Now' : 'Voting Closed'
-            }}
+        <div class="card" *ngIf="currentElection">
+          <h3>{{ currentElection?.name }}</h3>
+          <p><strong>Start Date:</strong> {{ currentElection?.startDate | date }}</p>
+          <p><strong>End Date:</strong> {{ currentElection?.endDate | date }}</p>
+          <p *ngIf="currentElection.candidates?.length">Candidates: {{ currentElection?.candidates?.length }}</p>
+          <button [disabled]="hasVoted || !currentElection?.votingOpen" (click)="voteNow()">
+            {{ hasVoted ? 'Already Voted' : currentElection?.votingOpen ? 'Vote Now' : 'Voting Closed' }}
           </button>
         </div>
       </section>
 
       <p class="sub-text">
-        Your vote matters deeply and has a lasting impact on your community, your country, and the
-        future. Every election is a chance to voice your opinion and influence the decisions that
-        affect your daily life. From local council to national leadership, your participation shapes
-        policies on education, healthcare, infrastructure, and beyond. We encourage you to stay
-        informed about upcoming elections, understand the candidates, and exercise your right to
-        vote responsibly. Remember, democracy thrives when everyone takes part. Together, we can
-        build a stronger, fairer, and more inclusive society. Your vote is your power — use it
-        wisely.
+        Your vote matters deeply and has a lasting impact on your community, your country, and the future. Every election is a chance to voice your opinion and influence the decisions that affect your daily life. From local council to national leadership, your participation shapes policies on education, healthcare, infrastructure, and beyond. We encourage you to stay informed about upcoming elections, understand the candidates, and exercise your right to vote responsibly. Remember, democracy thrives when everyone takes part. Together, we can build a stronger, fairer, and more inclusive society. Your vote is your power — use it wisely.
       </p>
     </aside>
   </header>
@@ -33,13 +24,14 @@
   <section class="upcoming-election-list">
     <h4>Upcoming elections</h4>
     <div class="card-list">
-      @for (election of upcomingElections; track election.title) {
+      <ng-container *ngFor="let election of upcomingElections">
         <div class="card">
-          <h3>{{ election.title }}</h3>
-          <p><strong>Date:</strong> {{ election.date }}</p>
+          <h3>{{ election.name }}</h3>
+          <p><strong>Start:</strong> {{ election.startDate | date }}</p>
+          <p><strong>End:</strong> {{ election.endDate | date }}</p>
           <p>{{ election.description }}</p>
         </div>
-      }
+      </ng-container>
     </div>
   </section>
 </section>
